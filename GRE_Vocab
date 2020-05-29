@@ -17,7 +17,7 @@ def game(n,vocab):
     for i in range(n):
         #print(rnd_lst) #to check if it is removing the random integer
         rnd = random.choice(rnd_lst)
-        #print(rnd) #to check what randome integer it is using to index
+        #print(rnd) #to check what random integer it is using to index
         random_def = keys_lst[rnd]
         q1 = input(f'{q_count}. {random_def}: ')
         if q1 == values_lst[rnd]:
@@ -64,19 +64,7 @@ if __name__ == '__main__': main()
 
 
 
-#n += 1
-    #print(type(vocab))
-    #print(len(vocab))
-    #if len(vocab) > 0:
-     #   for k in range(n):
-            
 
-          #  term = randint(0,len(vocab))
-           # a1 = input(f'{vocab[k]}: ')
-            #if a1 == 'hi':
-             #   print('yay')
-            #else:
-             #3   print ('Wrong Definition')
                     
 
 
