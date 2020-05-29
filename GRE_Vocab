@@ -1,0 +1,83 @@
+#!/usr/bin/env python3
+# Copyright 2009-2017 BHG http://bw.org/
+
+from random import randint
+import random 
+
+def game(n,vocab):
+    #initial lists and count values 
+    keys_lst = list(vocab.keys()) #NOTE: LISTS START FROM 0
+    values_lst = list(vocab.values())
+    rnd_lst = list(range(0,len(vocab)))
+    correct_count = 0
+    wrong_count = 0
+    q_count = 1
+
+    
+    for i in range(n):
+        #print(rnd_lst) #to check if it is removing the random integer
+        rnd = random.choice(rnd_lst)
+        #print(rnd) #to check what randome integer it is using to index
+        random_def = keys_lst[rnd]
+        q1 = input(f'{q_count}. {random_def}: ')
+        if q1 == values_lst[rnd]:
+            print('Correct Answer!\n')
+            rnd_lst.remove(rnd)
+            correct_count += 1
+            q_count += 1
+            
+        else:
+            print(f'Uh-oh! The correct answer is {values_lst[rnd]}!\n')
+            rnd_lst.remove(rnd)
+            wrong_count += 1
+            q_count += 1
+            
+    
+    print(f'The game has ended! You got {correct_count} correct answer(s) and {wrong_count} wrong answer(s).')
+    
+    
+def main():
+    vocab = {'(verb) to affirm, declare confidently': 'aver',
+             '(adj) still developing, incomplete': 'inchoate',
+             '(verb) to attack, overwhelm, crowd in or to surround': 'besiege',
+             '(verb) to mix, merge, combine into a whole': 'amalgamate',
+             '(noun) boldness, presumption': 'effrontery',
+             '(verb) to make or become thin, less dense; to refine': 'rarefy',
+             '(verb) to free from deception or error, set right in ideas or thinking': 'disabuse',
+             '(verb) to support, give a boost to': 'bolster',
+             '(verb) to throw or fall down headlong': 'precipitate',
+             '(noun) bitter, abusive criticism or denunciation': 'diatribe',
+             '(verb) to purify, refine, or make more spiritual': 'rarefy',
+             '(verb) to bring about or cause to happen, especially abruptly or prematurely': 'precipitate',
+             '(verb) to cause (a substance) to separate from a solution; to condense or cause to condense and fall from the sky as snow, rain, etc.': 'precipitate',
+             '(adj) speeding headlong, rapidly, or dangerously; proceeding with undue haste and without necessary forethought': 'precipitate',
+             '(adj) occurring abruptly or unexpectedly': 'precipitate',
+             '(adj) steep or rushing steeply downward': 'precipitate'}
+    
+    max_games = len(vocab)
+
+    user_games = int(input(f'How many times do you want to play? (Max {max_games}): '))
+    
+    game(user_games, vocab)
+    
+if __name__ == '__main__': main()
+
+
+
+#n += 1
+    #print(type(vocab))
+    #print(len(vocab))
+    #if len(vocab) > 0:
+     #   for k in range(n):
+            
+
+          #  term = randint(0,len(vocab))
+           # a1 = input(f'{vocab[k]}: ')
+            #if a1 == 'hi':
+             #   print('yay')
+            #else:
+             #3   print ('Wrong Definition')
+                    
+
+
+
