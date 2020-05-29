@@ -52,7 +52,26 @@ def main():
              '(verb) to cause (a substance) to separate from a solution; to condense or cause to condense and fall from the sky as snow, rain, etc.': 'precipitate',
              '(adj) speeding headlong, rapidly, or dangerously; proceeding with undue haste and without necessary forethought': 'precipitate',
              '(adj) occurring abruptly or unexpectedly': 'precipitate',
-             '(adj) steep or rushing steeply downward': 'precipitate'}
+             '(adj) steep or rushing steeply downward': 'precipitate',
+             '(verb) to weaken by washing away the support or foundation underneath': 'undermine',
+             '(adj) to dig a mine or tunnel underneath': 'undermine',
+             '(verb) to subvert secretly or insidiously': 'undermine',
+             '(verb) to weaken, injure, or ruin by degrees or a little at a time': 'undermine',
+             '(verb) to sap': 'undermine',
+             '(verb) to think carefully or consider': 'deliberate',
+             '(adj) carefully considered': 'deliberate',
+             '(adj) slowly, unhurriedly decided': 'deliberate',
+             '(adj) done intentionally or with awareness of the consequences': 'deliberate',
+             '(verb) to gradually weaken or destroy (a persons strength or power)': 'sap',
+             '(adv) in a gradual, subtle way, but with harmful effects': 'insidiously',
+             '(verb) undermine the power and authority of (an established system or institution)': 'subvert',
+             '(adj.) Concise, terse, or extremely sparing with words': 'laconic',
+             '(adj.) Intelligible or readily understandable': 'lucid',
+             '(adj.) Sane or rational': 'lucid',
+             '(adj.) Translucent or clear; bright or luminous': 'lucid',
+             '(verb) to make less intense or severe; to ease': 'assuage',
+             '(verb) to satisfy, appease, or quench': 'assuage',
+             '(verb) to pacify, sooth, or quiet': 'assuage'}
     
     max_games = len(vocab)
 
