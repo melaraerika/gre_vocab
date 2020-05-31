@@ -5,10 +5,10 @@ from random import randint
 import random 
 
 def game(n,vocab):
-    #initial lists and count values 
+    #initial lists and count values
     keys_lst = list(vocab.keys()) #NOTE: LISTS START FROM 0
     values_lst = list(vocab.values())
-    rnd_lst = list(range(0,len(vocab)))
+    rnd_lst = list(range(0,len(vocab))) #you need list here because vocab is a dict
     correct_count = 0
     wrong_count = 0
     q_count = 1
@@ -76,6 +76,7 @@ def main():
     max_games = len(vocab)
 
     user_games = int(input(f'How many times do you want to play? (Max {max_games}): '))
+    print('\n')
     
     game(user_games, vocab)
     
