@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # Copyright 2009-2017 BHG http://bw.org/
-
+#ice bear likes this
 from random import randint
-import random 
+import random
 
 def game(n,vocab):
-    #initial lists and count values 
+    #initial lists and count values
     keys_lst = list(vocab.keys()) #NOTE: LISTS START FROM 0
     values_lst = list(vocab.values())
     rnd_lst = list(range(0,len(vocab)))
@@ -13,7 +13,7 @@ def game(n,vocab):
     wrong_count = 0
     q_count = 1
 
-    
+
     for i in range(n):
         #print(rnd_lst) #to check if it is removing the random integer
         rnd = random.choice(rnd_lst)
@@ -25,17 +25,17 @@ def game(n,vocab):
             rnd_lst.remove(rnd)
             correct_count += 1
             q_count += 1
-            
+
         else:
             print(f'Uh-oh! The correct answer is {values_lst[rnd]}!\n')
             rnd_lst.remove(rnd)
             wrong_count += 1
             q_count += 1
-            
-    
+
+
     print(f'The game has ended! You got {correct_count} correct answer(s) and {wrong_count} wrong answer(s).')
-    
-    
+
+
 def main():
     vocab = {'(verb) to affirm, declare confidently': 'aver',
              '(adj) still developing, incomplete': 'inchoate',
@@ -72,19 +72,11 @@ def main():
              '(verb) to make less intense or severe; to ease': 'assuage',
              '(verb) to satisfy, appease, or quench': 'assuage',
              '(verb) to pacify, sooth, or quiet': 'assuage'}
-    
+
     max_games = len(vocab)
 
     user_games = int(input(f'How many times do you want to play? (Max {max_games}): '))
-    
+
     game(user_games, vocab)
-    
+
 if __name__ == '__main__': main()
-
-
-
-
-                    
-
-
-
