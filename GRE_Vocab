@@ -1,43 +1,12 @@
 #!/usr/bin/env python3
-# Copyright 2009-2017 BHG http://bw.org/
 # ice bear does not like merge conflicts
+
 from random import randint
+from random import sample
 import random
 
-def game(n,vocab):
-    #initial lists and count values
-    keys_lst = list(vocab.keys()) #NOTE: LISTS START FROM 0
-    values_lst = list(vocab.values())
-    rnd_lst = list(range(0,len(vocab))) #you need list here because vocab is a dict
-    correct_count = 0
-    wrong_count = 0
-    q_count = 1
 
-
-    for i in range(n):
-        #print(rnd_lst) #to check if it is removing the random integer
-        rnd = random.choice(rnd_lst)
-        #print(rnd) #to check what random integer it is using to index
-        random_def = keys_lst[rnd]
-        q1 = input(f'{q_count}. {random_def}: ')
-        if q1 == values_lst[rnd]:
-            print('Correct Answer!\n')
-            rnd_lst.remove(rnd)
-            correct_count += 1
-            q_count += 1
-
-        else:
-            print(f'Uh-oh! The correct answer is {values_lst[rnd]}!\n')
-            rnd_lst.remove(rnd)
-            wrong_count += 1
-            q_count += 1
-
-
-    print(f'The game has ended! You got {correct_count} correct answer(s) and {wrong_count} wrong answer(s).')
-
-
-def main():
-    vocab = {'(verb) to affirm, declare confidently': 'aver',
+vocab = {'(verb) to affirm, declare confidently': 'aver',
              '(adj) still developing, incomplete': 'inchoate',
              '(verb) to attack, overwhelm, crowd in or to surround': 'besiege',
              '(verb) to mix, merge, combine into a whole': 'amalgamate',
@@ -72,12 +41,150 @@ def main():
              '(verb) to make less intense or severe; to ease': 'assuage',
              '(verb) to satisfy, appease, or quench': 'assuage',
              '(verb) to pacify, sooth, or quiet': 'assuage'}
+    
+sentences = {'While I have started writing my autobiography, it is still ___ because I have several more chapters to add.': 'inchoate',
+                 'An ___ offense, or incomplete crime is a crime of preparing for or seeking to commit another crime': 'inchoate',
+                 'Customers have ___ed the company with questions.': 'besiege',
+                 'Because of budget cuts, the two schools were forced to ___ into one building.': 'amalgamate',
+                 'The two churches will ___ their fundraisers in order to raise more money as a group.': 'amalgamate',
+                 'My cheating husband has the ___ to accuse me of being disloyal to him.': 'effrontery',
+                 'Let me ___ you of your foolish notions about married life.': 'disabuse',
+                 'As a former agent himself, Horrigan hopes to ___ renters of the notion that brokers are mercenary con artists.': 'disabuse',
+                 'A convincing argument that was ___ed by the speaker''s reputation.':'bolstered',
+                 'The presidential candidate made a ____ against the opposing party, causing there to be even more anger between the parties.':'diatribe',
+                 'The chemotherapy may ___ a person"s hair and cause baldness.': 'rarefy',
+                 'An example of ___is add fresh air to a previously stuffy room; to ___ the air.': 'rarefy',
+                 'Even though Mark is experiencing pain in his ankle, he cannot think of anything he did to ____ the injury.':'precipitate',
+                 'I wondered whether they had been rather ___ in deposing the king.': 'precipitate',
+                 'Our economy ___ed into complete ruin.': 'precipitate',
+                 'This move could ___ years of hard work.': 'undermine',
+                 'This was a ___ attempt to provoke conflict.': 'deliberate',
+                 'The letter was helpful. It ___ed the fears of most members.': 'assuage',
+                 'An opportunity occurred to ___ her desire for knowledge.': 'assuage',
+                 '"At least we werent kidnapped.Im glad of that," was the ____response.': 'laconic',
+                 'She gave a clear and ___ account of her plans for the company''s future.': 'lucid',
+                 'Her normally ___ style had slipped and she had forgotten huge chunks of the recent past.': 'lucid',
+                 '"Our energy is being ___ped by bureaucrats and politicians."':'sap',
+                 'An attempt to ___ democratic government.': 'subvert',
+                 'Anxiety ___ infiltrates your thoughts and behavior.': 'insidiously',
+                 'He ___ed that he was innocent.': 'aver',
+                 'To __ is to state positively what is within one''s own knowledge or matter of deep conviction.': 'aver',
+                 }
 
-    max_games = len(vocab)
 
-    user_games = int(input(f'How many times do you want to play? (Max {max_games}): '))
+def write_term(n,vocab):
+    #initial lists and count values
+    keys_lst = list(vocab.keys()) #NOTE: LISTS START FROM 0
+    values_lst = list(vocab.values())
+    rnd_lst = list(range(0,len(vocab))) #you need list here because vocab is a dict
+    correct_count = 0
+    wrong_count = 0
+    q_count = 1
+
+
+    for i in range(n):
+        #print(rnd_lst) #to check if it is removing the random integer
+        rnd = random.choice(rnd_lst)
+        #print(rnd) #to check what random integer it is using to index
+        random_def = keys_lst[rnd]
+        q1 = input(f'{q_count}. {random_def}: \n')
+        if q1 == values_lst[rnd]:
+            print('Correct Answer!\n')
+            rnd_lst.remove(rnd)
+            correct_count += 1
+            q_count += 1
+
+        else:
+            print(f'Uh-oh! The correct answer is {values_lst[rnd]}!\n')
+            rnd_lst.remove(rnd)
+            wrong_count += 1
+            q_count += 1
+
+
+    print(f'The game has ended! You got {correct_count} correct answer(s) and {wrong_count} wrong answer(s).')
+    
+
+def complete_sent(n,sentences):
+    keys_lst = list(sentences.keys()) #NOTE: LISTS START FROM 0
+    values_lst = list(sentences.values())
+    rnd_lst = list(range(0,len(sentences)))
+    correct_count = 0
+    wrong_count = 0
+    q_count = 1
+
+        #print(rnd_lst) #to check if it is removing the random integer
+        
+    while q_count < (n+1):
+        
+        rnd = random.choice(rnd_lst)
+        rnd2 = random.choice(rnd_lst)
+        rnd3 = random.choice(rnd_lst)
+        rnd4 = random.choice(rnd_lst)
+        
+        answer = values_lst[rnd]
+        option2 = values_lst[rnd2]
+        option3 = values_lst[rnd3]
+        option4 = values_lst[rnd4]
+            
+        mult_choice = []
+        mult_choice.append(answer)
+        mult_choice.append(option2)
+        mult_choice.append(option3)
+        mult_choice.append(option4)
+        
+        
+        #if rnd != rnd2 != rnd3 != rnd4:
+        if len(mult_choice) == len(set(mult_choice)) and q_count < (n+1):
+            
+            print(f'{q_count}. {keys_lst[rnd]}: ')
+            mult_choice_order = sample(mult_choice, len(mult_choice))
+            
+            #for i in range(0, len(mult_choice_order)):
+             #   print(f'{i}.{mult_choice_order[i]}', end = ' ')
+          
+            print(f'1.{mult_choice_order[0]} 2.{mult_choice_order[1]} 3.{mult_choice_order[2]} 4.{mult_choice_order[3]}')
+            user_answer = input(' ')
+            
+            if user_answer == answer:
+                print('Correct Answer!\n')
+                rnd_lst.remove(rnd)
+                #del keys_lst[rnd]
+                correct_count += 1
+                q_count += 1
+                
+            else:
+                print(f'Uh-oh! The correct answer is {values_lst[rnd]}!\n')
+                #rnd_lst.remove(rnd)
+                #del keys_lst[rnd]
+                rnd_lst.remove(rnd)
+                wrong_count += 1
+                q_count += 1
+                
+
+    print(f'The game has ended! You got {correct_count} correct answer(s) and {wrong_count} wrong answer(s).')
+            
+
+
+def main():
+ 
+    max_games_terms = len(vocab)
+    
+    max_games_sent = len(sentences)
+    
+    print('These are the game options: \n A. Write the correct term. \n B. Complete the sentence. \n')
+    ask_games = input('Type the letter to select game: ')
     print('\n')
-
-    game(user_games, vocab)
+    
+        
+    if ask_games == 'A':
+        num_games = int(input(f'How many times do you want to play? (Max {max_games_terms}): '))
+        print('\n')
+        write_term(num_games, vocab)
+    
+    else:
+        num_games = int(input(f'How many times do you want to play? (Max {max_games_sent}): '))
+        print('\n')
+        complete_sent(num_games, sentences)
+        
 
 if __name__ == '__main__': main()
