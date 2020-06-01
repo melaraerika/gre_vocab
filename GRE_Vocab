@@ -107,24 +107,27 @@ def write_term(n,vocab):
 def complete_sent(n,sentences):
     keys_lst = list(sentences.keys()) #NOTE: LISTS START FROM 0
     values_lst = list(sentences.values())
-    rnd_lst = list(range(0,len(sentences)))
+    values_lst2 = list(sentences.values())
+    
     correct_count = 0
     wrong_count = 0
     q_count = 1
-
-        #print(rnd_lst) #to check if it is removing the random integer
-        
+    
+    
     while q_count < (n+1):
         
+        rnd_lst = list(range(0,len(values_lst)))
+        rnd_lst2 = list(range(0, len(values_lst2)))
+        
         rnd = random.choice(rnd_lst)
-        rnd2 = random.choice(rnd_lst)
-        rnd3 = random.choice(rnd_lst)
-        rnd4 = random.choice(rnd_lst)
+        rnd2 = random.choice(rnd_lst2)
+        rnd3 = random.choice(rnd_lst2)
+        rnd4 = random.choice(rnd_lst2)
         
         answer = values_lst[rnd]
-        option2 = values_lst[rnd2]
-        option3 = values_lst[rnd3]
-        option4 = values_lst[rnd4]
+        option2 = values_lst2[rnd2]
+        option3 = values_lst2[rnd3]
+        option4 = values_lst2[rnd4]
             
         mult_choice = []
         mult_choice.append(answer)
@@ -132,9 +135,9 @@ def complete_sent(n,sentences):
         mult_choice.append(option3)
         mult_choice.append(option4)
         
-        
+        if len(mult_choice) == len(set(mult_choice)):
+                
         #if rnd != rnd2 != rnd3 != rnd4:
-        if len(mult_choice) == len(set(mult_choice)) and q_count < (n+1):
             
             print(f'{q_count}. {keys_lst[rnd]}: ')
             mult_choice_order = sample(mult_choice, len(mult_choice))
@@ -147,24 +150,28 @@ def complete_sent(n,sentences):
             
             if user_answer == answer:
                 print('Correct Answer!\n')
-                rnd_lst.remove(rnd)
-                #del keys_lst[rnd]
+                #values_lst.remove(rnd)
+                del values_lst[rnd]
                 correct_count += 1
                 q_count += 1
                 
             else:
                 print(f'Uh-oh! The correct answer is {values_lst[rnd]}!\n')
                 #rnd_lst.remove(rnd)
-                #del keys_lst[rnd]
-                rnd_lst.remove(rnd)
+                del values_lst[rnd]
+                #rnd_lst.remove(rnd)
                 wrong_count += 1
                 q_count += 1
                 
+        else:
+            q_count = q_count + 0 
+        
 
     print(f'The game has ended! You got {correct_count} correct answer(s) and {wrong_count} wrong answer(s).')
             
 
-
+#def shuffle_order(random_lst, values_lst):
+    
 def main():
  
     max_games_terms = len(vocab)
@@ -175,8 +182,9 @@ def main():
     ask_games = input('Type the letter to select game: ')
     print('\n')
     
+    option_A = 'A'
         
-    if ask_games == 'A':
+    if ask_games.casefold() == option_A.casefold():
         num_games = int(input(f'How many times do you want to play? (Max {max_games_terms}): '))
         print('\n')
         write_term(num_games, vocab)
