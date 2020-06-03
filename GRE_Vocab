@@ -40,7 +40,14 @@ vocab = {'(verb) to affirm, declare confidently': 'aver',
              '(adj.) Translucent or clear; bright or luminous': 'lucid',
              '(verb) to make less intense or severe; to ease': 'assuage',
              '(verb) to satisfy, appease, or quench': 'assuage',
-             '(verb) to pacify, sooth, or quiet': 'assuage'}
+             '(verb) to pacify, sooth, or quiet': 'assuage',
+             '(verb) To weaken or sap the strength, vigor, or vitality of': 'enervate',
+             '(adj.) Sullen, gloomy, or melancholy': 'morose',
+             '(noun) A praising speech or tribute, especially honoring someone who has died': 'eulogy',
+             '(noun) High praise': 'eulogy',
+             '(verb) to soothe the anger of, mollify, or appease': 'placate',
+             '(noun) hostility, opposition, or active resistance': 'antagonism'}
+             
     
 sentences = {'While I have started writing my autobiography, it is still ___ because I have several more chapters to add.': 'inchoate',
                  'An ___ offense, or incomplete crime is a crime of preparing for or seeking to commit another crime': 'inchoate',
@@ -68,8 +75,12 @@ sentences = {'While I have started writing my autobiography, it is still ___ bec
                  'An attempt to ___ democratic government.': 'subvert',
                  'Anxiety ___ infiltrates your thoughts and behavior.': 'insidiously',
                  'He ___ed that he was innocent.': 'aver',
-                 'To __ is to state positively what is within one''s own knowledge or matter of deep conviction.': 'aver',
-                 }
+                 'To ___ is to state positively what is within one''s own knowledge or matter of deep conviction.': 'aver',
+                 'The hot sun ___ed her to the point of collapse.': 'enervate',
+                 'For days she was ___, and he could do nothing to cheer her up.' : 'morose',
+                 'Mr. Garth gave a long ____ about their achievements in the research.': 'eulogy',
+                 'Outraged minority groups will not be ___d by promises of future improvements.': 'placate',
+                 'There is no ___ between the divisions of the coloured race.': 'antagonism'}
 
 
 def write_term(n,vocab):
@@ -109,6 +120,9 @@ def complete_sent(n,sentences):
     values_lst = list(sentences.values())
     values_lst2 = list(sentences.values())
     
+    rnd_lst = list(range(0,len(keys_lst)))
+    rnd_lst2 = list(range(0, len(values_lst)))
+    
     correct_count = 0
     wrong_count = 0
     q_count = 1
@@ -116,8 +130,6 @@ def complete_sent(n,sentences):
     
     while q_count < (n+1):
         
-        rnd_lst = list(range(0,len(values_lst)))
-        rnd_lst2 = list(range(0, len(values_lst2)))
         
         rnd = random.choice(rnd_lst)
         rnd2 = random.choice(rnd_lst2)
@@ -151,15 +163,16 @@ def complete_sent(n,sentences):
             if user_answer == answer:
                 print('Correct Answer!\n')
                 #values_lst.remove(rnd)
-                del values_lst[rnd]
+                #del rnd_lst[rnd]
+                rnd_lst.remove(rnd)
                 correct_count += 1
                 q_count += 1
                 
             else:
-                print(f'Uh-oh! The correct answer is {values_lst[rnd]}!\n')
+                print(f'Uh-oh! The correct answer is {answer}!\n')
                 #rnd_lst.remove(rnd)
-                del values_lst[rnd]
-                #rnd_lst.remove(rnd)
+                #del rnd_lst[rnd]
+                rnd_lst.remove(rnd)
                 wrong_count += 1
                 q_count += 1
                 
