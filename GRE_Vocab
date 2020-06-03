@@ -46,7 +46,14 @@ vocab = {'(verb) to affirm, declare confidently': 'aver',
              '(noun) A praising speech or tribute, especially honoring someone who has died': 'eulogy',
              '(noun) High praise': 'eulogy',
              '(verb) to soothe the anger of, mollify, or appease': 'placate',
-             '(noun) hostility, opposition, or active resistance': 'antagonism'}
+             '(noun) hostility, opposition, or active resistance': 'antagonism',
+             '(adj.) Showing, expressing, or given to doubt or questioning' : 'skeptical',
+             '(adj.) Resolutely fearless or undaunted': 'intrepid',
+             '(adj.) Deviating from the norm or expectations': 'anamolous',
+             '(adj) irregular' : 'anamolous',
+             '(adj.) uncertain or incongruous in nature': 'anamolous',
+             '(adj.) Ordinary, practical, commonplace; banal or uninteresting': 'mundane',
+             '(adj.) Of or related to this world, as opposed to the heavens': 'mundane'}
              
     
 sentences = {'While I have started writing my autobiography, it is still ___ because I have several more chapters to add.': 'inchoate',
@@ -57,9 +64,9 @@ sentences = {'While I have started writing my autobiography, it is still ___ bec
                  'My cheating husband has the ___ to accuse me of being disloyal to him.': 'effrontery',
                  'Let me ___ you of your foolish notions about married life.': 'disabuse',
                  'As a former agent himself, Horrigan hopes to ___ renters of the notion that brokers are mercenary con artists.': 'disabuse',
-                 'A convincing argument that was ___ed by the speaker''s reputation.':'bolstered',
+                 'A convincing argument that was ___ed by the speaker’s reputation.':'bolstered',
                  'The presidential candidate made a ____ against the opposing party, causing there to be even more anger between the parties.':'diatribe',
-                 'The chemotherapy may ___ a person"s hair and cause baldness.': 'rarefy',
+                 'The chemotherapy may ___ a person’s hair and cause baldness.': 'rarefy',
                  'An example of ___is add fresh air to a previously stuffy room; to ___ the air.': 'rarefy',
                  'Even though Mark is experiencing pain in his ankle, he cannot think of anything he did to ____ the injury.':'precipitate',
                  'I wondered whether they had been rather ___ in deposing the king.': 'precipitate',
@@ -80,7 +87,11 @@ sentences = {'While I have started writing my autobiography, it is still ___ bec
                  'For days she was ___, and he could do nothing to cheer her up.' : 'morose',
                  'Mr. Garth gave a long ____ about their achievements in the research.': 'eulogy',
                  'Outraged minority groups will not be ___d by promises of future improvements.': 'placate',
-                 'There is no ___ between the divisions of the coloured race.': 'antagonism'}
+                 'There is no ___ between the divisions of the coloured race.': 'antagonism',
+                 'Ruth is convinced that it’s a good idea but I’m deeply ____.': 'skeptical',
+                 'The ___ four took part in a grueling sponsored 50-mile bicycle ride.': 'intrepid',
+                 'These ____ matters such as paying bills and shopping for food do not interest her.': 'mundane',
+                 'They couldn’t find an explanation for the seemingly anomalous results of the experiment.' : 'anomalous'}
 
 
 def write_term(n,vocab):
